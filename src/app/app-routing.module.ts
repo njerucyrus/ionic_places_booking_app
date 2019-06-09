@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'offers', loadChildren: './places/offers/offers.module#OffersPageModule' },
   { path: 'new-offer', loadChildren: './places/offers/new-offer/new-offer.module#NewOfferPageModule' },
   { path: 'edit-offer', loadChildren: './places/offers/edit-offer/edit-offer.module#EditOfferPageModule' },
+  { path: 'place-detail', loadChildren: './places/discover/place-detail/place-detail.module#PlaceDetailPageModule' },
 ];
 
 @NgModule({
