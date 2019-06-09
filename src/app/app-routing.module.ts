@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
   { path: 'places', loadChildren: './places/places.module#PlacesPageModule' },
   { path: 'discover', loadChildren: './places/discover/discover.module#DiscoverPageModule' },
+  { path: 'offers', loadChildren: './places/offers/offers.module#OffersPageModule' },
 ];
 
 @NgModule({
