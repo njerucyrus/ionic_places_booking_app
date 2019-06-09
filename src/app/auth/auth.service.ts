@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -6,7 +7,7 @@ import {Injectable} from '@angular/core';
 export class AuthService {
     private _userIsAuthenticated = false;
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
 
@@ -16,6 +17,7 @@ export class AuthService {
 
     login() {
         this._userIsAuthenticated = true;
+        this.router.navigateByUrl('/places/tabs/discover')
     }
 
     logout() {
