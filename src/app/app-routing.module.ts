@@ -5,6 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
   { path: 'places', loadChildren: './places/places.module#PlacesPageModule' },
+  { path: 'discover', loadChildren: './places/discover/discover.module#DiscoverPageModule' },
 ];
 
 @NgModule({
