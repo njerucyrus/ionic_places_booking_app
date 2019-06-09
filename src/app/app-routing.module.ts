@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'discover', loadChildren: './places/discover/discover.module#DiscoverPageModule' },
   { path: 'offers', loadChildren: './places/offers/offers.module#OffersPageModule' },
   { path: 'new-offer', loadChildren: './places/offers/new-offer/new-offer.module#NewOfferPageModule' },
+  { path: 'edit-offer', loadChildren: './places/offers/edit-offer/edit-offer.module#EditOfferPageModule' },
 ];
 
 @NgModule({
