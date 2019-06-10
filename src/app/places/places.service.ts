@@ -16,8 +16,8 @@ export class PlacesService {
 
         new Place(
             'p2',
-            'Manhattan',
-            'In the heart of New York',
+            'Paris',
+            'Beautiful City in france',
             'https://images.unsplash.com/photo-1469935069869-b53acc57c8d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80',
             209.99
         ),

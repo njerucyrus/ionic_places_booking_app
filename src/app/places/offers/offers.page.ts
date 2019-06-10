@@ -17,4 +17,7 @@ export class OffersPage implements OnInit {
         this.offers = this.placesService.getPlaces()
     }
 
+    onEdit(offerId: string){
+        console.log("editing ", offerId)
+    }
 }

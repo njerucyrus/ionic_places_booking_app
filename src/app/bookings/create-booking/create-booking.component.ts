@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'app-create-booking',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateBookingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modelCtrl: ModalController) { }
 
   ngOnInit() {}
+
+  onCancel() {
+    this.modelCtrl.dismiss()
+  }
+
+  onBook() {
+    this.modelCtrl.dismiss()
+  }
 
 }
