@@ -1,9 +1,66 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title padding>Authentication</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title text-center padding>{{isLogin?'Login': 'SignUp'}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-button color="primary" (click)="onLogin()" margin>Login</ion-button>
+    <form #f="ngForm" (ngSubmit)="onLoginSubmit(f)">
+        <ion-card margin-start margin-end margin-vertical>
+            <ion-card-header>
+                <ion-card-header text-center>
+                    <ion-label>
+                        <h3 style="font-size: 16px;">Login Here</h3>
+                    </ion-label>
+                </ion-card-header>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col sizeMd="6" offsetMd="6">
+                            <ion-list>
+                                <ion-item>
+                                    <ion-label position="floating">Email</ion-label>
+                                    <ion-input type="email" ngModel name="email" required email
+                                               #emailCtrl="ngModel"></ion-input>
+
+                                </ion-item>
+
+                                <ion-label *ngIf="!emailCtrl.valid && emailCtrl.touched"
+                                           style="color: var(--ion-color-danger);">
+                                    Invalid email address
+                                </ion-label>
+
+
+                                <ion-item>
+                                    <ion-label position="floating">Password</ion-label>
+                                    <ion-input type="password" ngModel name="password" minlength="6"
+                                               required #passwordCtrl="ngModel"></ion-input>
+                                </ion-item>
+
+                                <ion-label *ngIf="!passwordCtrl.valid && passwordCtrl.touched"
+                                           style="color: var(--ion-color-danger);">
+                                    Password must be min of 6 characters
+                                </ion-label>
+
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col sizeMd="6" offsetMd="3">
+                            <ion-button type="button" fill="clear" color="primary" expand="block"
+                            (click)="onSwitchAuthMode()">
+                                Switch to {{isLogin?'SignUp': 'Login'}}
+                            </ion-button>
+                            <ion-button type="submit" color="primary" expand="block"
+                                        margin [disabled]="!f.valid">Login
+                            </ion-button>
+
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+    </form>
+
 </ion-content>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalController, NavController} from '@ionic/angular';
+import {ActionSheetController, ModalController, NavController} from '@ionic/angular';
 import {Place} from '../../place.model';
 import {CreateBookingComponent} from '../../../bookings/create-booking/create-booking.component';
 import {ActivatedRoute} from '@angular/router';
@@ -15,7 +15,11 @@ import {ModalOptions} from '@ionic/core'
 export class PlaceDetailPage implements OnInit {
     private place: Place;
 
-    constructor(private modalCtrl: ModalController, private route: ActivatedRoute, private navCtrl: NavController, private placesService: PlacesService) {
+    constructor(private modalCtrl: ModalController,
+                private route: ActivatedRoute,
+                private navCtrl: NavController,
+                private placesService: PlacesService,
+                private actionSheetCtrl: ActionSheetController) {
     }
 
     ngOnInit() {
@@ -30,6 +34,35 @@ export class PlaceDetailPage implements OnInit {
     }
 
     onBookPlace() {
+        this.actionSheetCtrl.create({
+            header: 'Choose Action',
+            buttons: [
+                {
+                    text: 'Select Date',
+                    handler: () => {
+                        this.showBookingModal('select');
+                    }
+                },
+                {
+                    text: 'Random Date',
+                    handler: () => {
+                        this.showBookingModal('random')
+                    }
+                },
+
+                {
+                    text: 'Cancel',
+                    role: 'cancel'
+                }
+            ]
+        }).then(actionSheetEl => {
+            actionSheetEl.present()
+        })
+
+    }
+
+    showBookingModal(mode: 'select' | 'random') {
+        console.log(mode)
         this.modalCtrl.create(<ModalOptions>{
             component: CreateBookingComponent,
             componentProps: {
@@ -41,5 +74,4 @@ export class PlaceDetailPage implements OnInit {
             }
         )
     }
-
 }
