@@ -40,7 +40,7 @@ export class NewOfferPage implements OnInit {
     }
 
     onCreateNewOffer(form: FormGroup) {
-        console.log(form)
+       // console.log(form)
     }
 
 }

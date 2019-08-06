@@ -11,7 +11,9 @@ export class PlacesService {
             'Manhattan',
             'In the heart of New York',
             'https://images.unsplash.com/photo-1469935069869-b53acc57c8d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80',
-            199.99
+            199.99,
+            new Date('2019-01-01'),
+            new Date('2019-12-31')
         ),
 
         new Place(
@@ -19,7 +21,9 @@ export class PlacesService {
             'Paris',
             'Beautiful City in france',
             'https://images.unsplash.com/photo-1469935069869-b53acc57c8d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80',
-            209.99
+            209.99,
+            new Date('2019-01-01'),
+            new Date('2019-12-31')
         ),
 
         new Place(
@@ -27,7 +31,9 @@ export class PlacesService {
             'Manhattan',
             'In the heart of New York',
             'https://images.unsplash.com/photo-1469935069869-b53acc57c8d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80',
-            180.99
+            180.99,
+            new Date('2019-01-01'),
+            new Date('2019-12-31')
         ),
     ];
 
@@ -35,12 +41,12 @@ export class PlacesService {
     constructor() {
     }
 
-    getPlaces() {
+    getPlaces(): Place[] {
         return [...this._places]
     }
 
-    getPlace(id:string){
-        return this._places.find(p=> p.id === id)
+    getPlace(id: string): Place {
+        return this._places.find(p => p.id === id)
 
     }
 }
